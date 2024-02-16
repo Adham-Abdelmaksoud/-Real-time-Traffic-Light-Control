@@ -1,0 +1,157 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_unsigned.all;
+
+--Trafficlights input represents 12 bits where the first 3 bits
+--represent the traffic light for cars in street 1, the second
+--3 bits represent the traffic light for cars in street 2, the
+--third 3 bits represent the traffic light for pedestrians in
+--street 1, and the fourth 3 bits represent the traffic light
+--for pedestrians in street 2
+
+--The first bit of each 3 bits represent the red light, the
+--second bit represents the yellow light, and the third bit
+--represents the green light
+
+--button1 represents the button for pedestrians in street 1,
+--and button2 represents the button for pedestrians in street 2
+
+entity TLC is
+  Port (
+  Trafficlights : out STD_LOGIC_Vector (11 downto 0);
+  Clck : in STD_LOGIC;
+  Reset : in STD_LOGIC;
+  button1, button2 : in STD_LOGIC
+  );
+end TLC;
+
+/*state is a signal of user defined tyoe state_type that represents
+each state*/
+
+/*count is a signal representing a counter for each state that
+is incremented every clock cycle and is reset to zero when
+it goes from on state to another*/
+
+/*sec10, sec2, and sec3 are constant signals that represent
+10 seconds, 2 seconds, and 3 seconds respectively*/
+
+architecture Behavioral of TLC is
+  type state_type is (st0, st1, st2, st3, st4, st5);
+  signal state: state_type;
+  signal count : std_logic_vector (3 downto 0);
+  constant sec10 : std_logic_vector (3 downto 0) := "1010";
+  constant sec2 : std_logic_vector (3 downto 0) := "0010";
+  constant sec3 : std_logic_vector(3 downto 0) := "0011";
+begin
+  
+  /*button1 and button2 do not depend on the clock but depend
+  on the current state*/
+  
+  process (Clck, Reset, button1, button2)
+  begin
+    if Reset = '1' then
+      state <= st0; --reset to initial state
+      count <= X"0"; -- reset counter
+      
+    elsif button1 = '1' then
+      if state = st3 then
+        state <= st4;
+        count <= X"0";
+      end if;
+    
+    elsif button2 = '1' then
+      if state = st0 then
+        state <= st1;
+        count <= X"0";
+      end if;
+      
+    elsif Clck' event and Clck = '1' then
+      case (state) is
+      
+      when st0 =>
+      if count < sec10 then
+        state <= st0;
+        count <= count + 1;
+      else
+        state <= st1;
+        count <= X"0";
+      end if;
+    
+      when st1 =>
+      if count < sec2 then
+        state <= st1;
+        count <= count + 1;
+      else
+        state <= st2;
+        count <= X"0";
+      end if;
+      
+      when st2 =>
+      if count < sec3 then
+        state <= st2;
+        count <= count + 1;
+      else
+        state <= st3;
+        count <= X"0";
+      end if;
+ 
+      when st3 =>
+      if count < sec10 then
+        state <= st3;
+        count <= count + 1;
+      else
+        state <= st4;
+        count <= X"0";
+      end if;
+      
+      when st4 =>
+      if count < sec2 then
+        state <= st4;
+        count <= count + 1;
+      else
+        state <= st5;
+        count <= X"0";
+      end if;
+      
+      when st5 =>
+      if count < sec3 then
+        state <= st5;
+        count <= count + 1;
+      else
+        state <= st0;
+        count <= X"0";
+      end if;
+ 
+      when others =>
+      state <= st0;
+ 
+      end case;
+    end if;
+  end process;
+
+  OUTPUT_DECODE : process (state)
+  begin
+    case state is
+    -- Traffic1 Red, Traffic2 Green, Pedestrian1 Green, Pedestrian2 Red
+    when st0 => Trafficlights <= b"100_001_001_100";
+      
+    -- Traffic1 Red, Traffic2 Yellow, Pedestrian1 Green, Pedestrian2 Red
+    when st1 => Trafficlights <= b"100_010_001_100";
+      
+    -- Traffic1 Red, Traffic2 Red, Pedestrian1 Yellow, Pedestrian2 Red
+    when st2 => Trafficlights <= b"100_100_010_100";
+      
+    -- Traffic1 Green, Traffic2 Red, Pedestrian1 Red, Pedestrian2 Green
+    when st3 => Trafficlights <= b"001_100_100_001";
+      
+    -- Traffic1 Yellow, Traffic2 Red, Pedestrian1 Red, Pedestrian2 Green
+    when st4 => Trafficlights <= b"010_100_100_001";
+      
+    -- Traffic1 Red, Traffic2 Red, Pedestrian1 Red, Pedestrian2 Yellow
+    when st5 => Trafficlights <= b"100_100_100_010";
+    
+    when others => Trafficlights <= b"100_001_001_100";
+    end case;
+  end process;
+  
+end Behavioral;

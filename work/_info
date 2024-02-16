@@ -1,0 +1,121 @@
+m255
+K3
+13
+cModel Technology
+dD:\Faculty of engineering Ainshams university\3rd year university\Automation\Codes
+Etest
+Z0 w1642015752
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 dD:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code
+Z4 8D:/Faculty of engineering Ainshams university/3rd year university/Automation/Project/Code/test.vhd
+Z5 FD:/Faculty of engineering Ainshams university/3rd year university/Automation/Project/Code/test.vhd
+l0
+L4
+VDVNmOgkdFSh^m;E=6K_IZ2
+Z6 OV;C;10.1d;51
+32
+Z7 !s108 1642164833.239000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:/Faculty of engineering Ainshams university/3rd year university/Automation/Project/Code/test.vhd|
+Z9 !s107 D:/Faculty of engineering Ainshams university/3rd year university/Automation/Project/Code/test.vhd|
+Z10 o-work work -2002 -explicit -O0
+Z11 tExplicit 1
+!s100 [dzP_zBEhoBjWF0X_PP2>3
+!i10b 1
+Atb
+Z12 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z13 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z14 DEx4 work 3 tlc 0 22 A@U1`i9X^TZYVIJ73Zjo23
+R1
+R2
+DEx4 work 4 test 0 22 DVNmOgkdFSh^m;E=6K_IZ2
+l10
+L7
+V:mal=7bZKThjfA8LJ7_FX1
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!s100 RTMc?BCj:WIgT4RcUIM@>1
+!i10b 1
+Etlc
+Z15 w1642165170
+R12
+R13
+R1
+R2
+R3
+Z16 8D:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\TLC.vhd
+Z17 FD:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\TLC.vhd
+l0
+L19
+VA@U1`i9X^TZYVIJ73Zjo23
+!s100 N<1YEYaz=LlTHLnIciMO72
+R6
+32
+!i10b 1
+Z18 !s108 1642165170.919000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\TLC.vhd|
+Z20 !s107 D:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\TLC.vhd|
+R10
+R11
+Abehavioral
+R12
+R13
+R1
+R2
+R14
+l45
+L38
+Z21 Vd5:bAeR<b@jzm<H[;AJ1F2
+!s100 ]^fi01h;DC`BAj]NO`iCc0
+R6
+32
+!i10b 1
+R18
+R19
+R20
+R10
+R11
+Etraffic_lights
+Z22 w1641992648
+R12
+R13
+R1
+R2
+R3
+Z23 8D:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\traffic_lights.vhd
+Z24 FD:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\traffic_lights.vhd
+l0
+L5
+V2OCOi>U0U^Y@WM@f?CRgi3
+R6
+32
+Z25 !s108 1641992741.888000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|D:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\traffic_lights.vhd|
+Z27 !s107 D:\Faculty of engineering Ainshams university\3rd year university\Automation\Project\Code\traffic_lights.vhd|
+R10
+R11
+!s100 G3a0l0zRlKRmHfWF8CYkS0
+!i10b 1
+Abehavioral
+R12
+R13
+R1
+R2
+DEx4 work 14 traffic_lights 0 22 2OCOi>U0U^Y@WM@f?CRgi3
+l19
+L12
+Vf0=XEX8mbo:3njE`CHHXk0
+R6
+32
+R25
+R26
+R27
+R10
+R11
+!s100 JL9U2lek2DSz0>AQR:RZT2
+!i10b 1
